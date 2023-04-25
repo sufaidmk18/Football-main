@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-</head>
-        <body>
-          <table class="table table-dark" border="2">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Present</th>
-                <th>abscent</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for i in data %}
-              <tr>
-                <td>{{i.pname}}</td>
-                <td><input type="radio" name="a" value="1"></td>
-                <td><input type="radio" name="a" value="0"></td>
-              </tr>
-              {% endfor %}
-              
-              
-            </tbody>
-          </table>
-        
-        
-        </body>
-</html>       
-            
-
+  <head> </head>
+  <body>
+    <form action="" method="get">
+      <input type="date" name="date" id="date" />
+      <input type="submit" value="submit" />
+    </form>
+    <table class="table table-dark" border="2">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Present</th>
+          <th>abscent</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in attendance_data %}
+        <tr>
+          <td>{{i.player_name}}</td>
+          <td>
+            <input
+              type="radio"
+              name="a{{i.id}}"
+              value="1"
+              {% if i.attendance_present %}checked="checked"{% endif %}
+            />
+          </td>
+          <td>
+            <input
+              type="radio"
+              name="a{{i.id}}"
+              value="0"
+              {% if i.attendance_absent %}checked="checked"{% endif %}
+            />
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

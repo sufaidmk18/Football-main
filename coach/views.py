@@ -79,9 +79,29 @@ def Cdetails(request):
 def getcoach(request):
     return Coach.objects.get(login_id=request.session["lid"]).id
 
+from datetime import datetime
 def today(request):
     players=player.objects.all().filter(coach=getcoach(request))
     context={"data":players}
+    attendance_data=[]
+    date=request.GET['date']
+    if date is None:
+        date=datetime.utcnow
+    print(date)
+    for i in players:
+        values={}
+        values["id"]=i.id
+        values["player_name"]=i.pname
+
+        if attendance.objects.filter(date=date).exists():
+            values["attendance_present"]=True
+            values["attendance_absent"]=False
+        else:
+            values["attendance_present"]=False
+            values["attendance_absent"]=True
+        attendance_data.append(values)
+    print(attendance_data)
+    context["attendance_data"]=attendance_data
     return render(request,'coach/today.html',context)
 
 # def add_attendance(request,playerid,date,status):
@@ -94,7 +114,7 @@ def add_attendence(request,player_id,val,date):
         a.save()
         return HttpResponse("changed")
     else :
-        Attendence.objects.get(Student_id=id,date=date,present=val).save()
+        attendance.objects.get(Student_id=id,date=date,present=val).save()
         return HttpResponse("created")
 def get_attendance(request,playerid,date):
     return HttpResponse("get data")
