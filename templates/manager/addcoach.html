@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>add new coach</h1>
+
+<form method="POST">
+    {% csrf_token %}
+  <label for="fname"> username</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="password">password</label>
+  <input type="text" id="password" name="password" pattern="[a-z A-Z 0-9]{5,15}"><br><br>
+  {% comment %} <label for="email">email</label> {% endcomment %}
+  {% comment %} <input type="email" id="email" name="email"><br><br> {% endcomment %}
+  <input type="submit" value="Submit">
+</form>
+
+
+
+</body>
+</html>

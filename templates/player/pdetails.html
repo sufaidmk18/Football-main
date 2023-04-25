@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>add your details</h1>
+
+<form method="POST">
+
+  {%csrf_token%}
+
+  <label for="fname"> name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="dob">dob</label>
+  <input type="date" id="dob" name="dob">
+  <br><br>
+  
+    <label for="position">Choose a position:</label>
+    <select name="position" id="position">
+      <option value="Goalkeeper">Goalkeeper</option>
+      <option value="Centre-back">Centre-back</option>
+      <option value="Full-back">Full-back</option>
+      <option value="left wing back">left wing back</option>
+      <option value="right wing back">right wing back</option>
+      <option value="Central midfielder">Central midfielder</option>
+      <option value="Defensive midfielder">Defensive midfielder</option>
+      <option value="Attacking midfielder">Attacking midfielder</option>
+      <option value="Centre forward">Centre forward</option>
+      <option value="left forward">left forward</option>
+      <option value="right forward">right forward</option>
+      
+    </select>
+    <br><br>
+  <label for="post"> post</label>
+  <input type="text" id="post" name="post"><br><br>
+  <label for="contact"> contact</label>
+  <input type="text" id="contact" name="contact"><br><br>
+  <label for="hname"> housename</label>
+  <input type="text" id="hname" name="hname"><br><br>
+  <label for="place">place</label>
+  <input type="text" id="place" name="place"><br><br>
+  <label for="village"> village:</label>
+  <input type="text" id="village" name="village"><br><br>
+  <label for="district"> district:</label>
+  <input type="text" id="district" name="district"><br><br>
+  <label for="state">state</label>
+  <input type="text" id="state" name="state"><br><br>
+  <input type="submit" value="Submit">
+</form>
+{{message}}
+
+
+</body>
+</html>

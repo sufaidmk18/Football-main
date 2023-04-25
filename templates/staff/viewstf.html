@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <body>
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">name:{{stf.name}}</li>
+      <li class="list-group-item"> DOB :{{stf.dob}} </li>
+      <li class="list-group-item">housename:{{stf.housename}}</li>
+      <li class="list-group-item"> post:{{stf.post}}</li>
+      <li class="list-group-item">place:{{stf.place}}</li>
+      <li class="list-group-item">village:{{stf.village}}</li>
+      <li class="list-group-item">district:{{stf.district}}</li>
+      <li class="list-group-item">state:{{stf.state}}</li>
+      <li class="list-group-item">contact:{{stf.contact}}</li>
+
+  </ul>
+  <a href="{% url 'editstaff' id=stf.id %}" >edit</a>
+  </body>
+</html>

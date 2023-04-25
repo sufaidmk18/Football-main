@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <style>
+        
+        </style>
+</head>
+        <body>
+
+                <p>{{p.pname}}</p>
+            <form method="POST">
+
+                {%csrf_token%}
+
+                <label for="total matches">total matches:</label>
+                <input type="number" id="total matches" name="total matchese" >
+                
+                <br><br>
+                
+                <label for="goalscored">goalscored:</label>
+                <input type="number" id="goalscored" name="goalscored" >
+
+                <br><br>
+                <label for="assists">assists:</label>
+                <input type="number" id="assists" name="assists" >
+                
+                <br><br>
+                <label for="cleansheets">cleansheets:</label>
+                <input type="number" id="cleansheets" name="cleansheets" >
+                
+                <br><br>
+                
+                <label for="redcards">redcards:</label>
+                <input type="number" name="redcards" >
+                
+                <br><br>
+                <label for="yellowcard">yellowcard:</label>
+                <input type="number" id="yellowcard" name="yellowcard" >
+                
+                <br><br>
+                
+                
+                
+                <input type="submit" value="Submit">
+              </form>
+        
+        </body>
+</html>       
+            

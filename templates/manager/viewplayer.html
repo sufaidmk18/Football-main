@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <style>
+        a:link, a:visited {
+          background-color: #f44336;
+          color: white;
+          padding: 14px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+        
+        a:hover, a:active {
+          background-color: red;
+        }
+        </style>
+</head>
+        <body>
+        
+        <h2></h2>
+        
+            <p>{{p.pname}}</p>
+        <a href="#">performance</a>
+        <a href="#">statistics</a>
+        <a href="{% url 'vpdetails' id=i %}">details</a>
+        </body>
+</html>       
+            

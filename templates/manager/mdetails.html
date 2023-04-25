@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>dob
+<body>
+
+<h1>add your details</h1>
+
+<form  method=POST>
+
+  {% csrf_token %}
+  
+  <label for="fname"> name:</label>
+  <input type="text" id="fname" name="fname"><br><br>
+  <label for="dob">dob</label>
+  <input type="text" id="dob" name="dob"><br><br>
+  <label for="hname"> housename</label>
+  <input type="text" id="hname" name="hname"><br><br>
+  <label for="place">place</label>
+  <input type="text" id="place" name="place"><br><br>
+  <label for="village"> village:</label>
+  <input type="text" id="village" name="village"><br><br>
+  <label for="taluk">taluk</label>
+  <input type="text" id="taluk" name="taluk"><br><br>
+  <label for="district"> district:</label>
+  <input type="text" id="district" name="district"><br><br>
+  <label for="state">state</label>
+  <input type="text" id="state" name="state"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+
+</body>
+</html>

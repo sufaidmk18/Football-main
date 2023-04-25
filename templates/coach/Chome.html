@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <style>
+        a:link, a:visited {
+          background-color: #f44336;
+          color: white;
+          padding: 14px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+        
+        a:hover, a:active {
+          background-color: red;
+        }
+        </style>
+</head>
+        <body>
+        
+        <h2>home</h2>
+        
+        <h3>manage your academy</h3>
+        <a href="{% url 'players' %}" >players</a>
+        {% comment %} <a href="{% url 'team' %}" target="_blank">team</a>  {% endcomment %}
+        <a href="{% url 'match' %}" target="_blank">match</a>
+        <a href="{% url 'attendance' %}" >attendance</a>  
+        <a href="{% url 'viewc' id=id %}">details</a> 
+        
+        </body>
+</html>       
+            

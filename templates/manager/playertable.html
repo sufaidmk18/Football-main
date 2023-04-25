@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h1>players</h1>
+
+
+<ol >
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                
+              </div>
+              {% comment %} <span class="badge bg-primary rounded-pill">14</span> {% endcomment %}
+            </li>
+            
+            {% for i in playerr %}
+             <a href="/manager/viewplayer/{{i.id}}"> <li class="list-group-item">{{i.pname}}</li></a>
+            {% endfor %}
+            
+            
+</ol>
+
+
+</body>
+</html>
