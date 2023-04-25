@@ -84,16 +84,16 @@ def today(request):
     players=player.objects.all().filter(coach=getcoach(request))
     context={"data":players}
     attendance_data=[]
-    date=request.GET['date']
-    if date is None:
-        date=datetime.utcnow
+    date=request.GET.get('date', False)
+    if not date:
+        date=datetime.utcnow()
     print(date)
     for i in players:
         values={}
         values["id"]=i.id
         values["player_name"]=i.pname
 
-        if attendance.objects.filter(date=date).exists():
+        if attendance.objects.filter(date=date,pname=i).exists():
             values["attendance_present"]=True
             values["attendance_absent"]=False
         else:
@@ -114,7 +114,7 @@ def add_attendence(request,player_id,val,date):
         a.save()
         return HttpResponse("changed")
     else :
-        attendance.objects.get(Student_id=id,date=date,present=val).save()
+        attendance.objects.create(pname_id=player_id,date=date,status=val)
         return HttpResponse("created")
 def get_attendance(request,playerid,date):
     return HttpResponse("get data")

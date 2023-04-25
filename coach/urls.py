@@ -7,11 +7,11 @@ urlpatterns = [
     path('viewc/<int:id>',views.viewc,name= "viewc"),
     path("edit/<int:id>",views.editcoach,name="editcoach"),
     path('Cdetails/',views.Cdetails,name= "Cdetails"),
-
     path('players/',views.players,name= "players"),
     path('player/',views.playerlist,name= "player"),
     path('addplayer/',views.addplayer,name= "addplayer"),
     path('attendance/',views.Attendance,name= "attendance"),
+    path('add/attendance/<int:player_id>/<int:val>/<str:date>',views.add_attendence,name="add_attendence"),
     path('statistics/',views.Statistics,name= "statistics"),
     path('today/',views.today,name= "today"),
     
