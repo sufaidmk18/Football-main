@@ -86,7 +86,10 @@ def today(request):
     attendance_data=[]
     date=request.GET.get('date', False)
     if not date:
-        date=datetime.utcnow()
+        month=str(datetime.utcnow().date().month)
+        if len(month) == 1:
+            month="0"+month
+        date=str(datetime.utcnow().date().year)+"-"+month+"-"+str(datetime.utcnow().date().day)
     print(date)
     for i in players:
         values={}
@@ -100,7 +103,9 @@ def today(request):
             values["attendance_present"]=False
             values["attendance_absent"]=True
         attendance_data.append(values)
-    print(attendance_data)
+    print(date)
+    
+    context["date"]=date
     context["attendance_data"]=attendance_data
     return render(request,'coach/today.html',context)
 
