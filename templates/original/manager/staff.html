@@ -1,0 +1,19 @@
+{% extends 'original/manager/main.html' %}
+{% block content %}
+
+
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Links and buttons</h5>
+
+      <!-- List group with Links and buttons -->
+      <div class="list-group">
+        {% for i in staff %}
+        <button type="button" class="list-group-item list-group-item-action">{{i.name}}</button>
+        {% endfor %}
+        
+      </div><!-- End List group with Links and buttons -->
+
+    </div>
+</div>
+{% endblock content %}

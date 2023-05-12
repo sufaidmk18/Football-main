@@ -1,0 +1,99 @@
+{% extends 'original/coach/main.html' %}
+{% block content %}
+
+
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Statistics details </h5>
+            
+                  <!-- Default Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">Skill</th>
+                        <th scope="col">performance</th>
+                        <th> action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                      <tr>
+                       
+                        <td>boll control</td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.bollcontronl}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">{{data.bollcontronl}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="bollcontronl" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="bollcontronl" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr>
+                     
+                      <tr>
+                       
+                        <td>Pass accuracy </td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.passaccuracy}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{data.passaccuracy}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="passaccuracy" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="passaccuracy" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr> 
+                      <tr>
+                       
+                        <td>Stamina</td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.stamina}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{data.stamina}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="stamina" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="stamina" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr> 
+                      <tr>
+                       
+                        <td>Speed </td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.speed}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{data.speed}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="speed" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="speed" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr> 
+                      <tr>
+                       
+                        <td>Takles </td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.takles}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{data.takles}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="takles" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="takles" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr> 
+                      <tr>
+                       
+                        <td>Shoot </td>
+                        <td><div class="progress mt-3">
+                            <div class="progress-bar" role="progressbar" style="width: {{data.shoot}}%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">{{data.shoot}}%</div>
+                          </div>
+                        </td>
+                        <td>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="shoot" add_sub=1  player_id=data.pname.id%}">+</a>
+                          <a type="button" class="btn btn-primary rounded-pill" href="{% url 'editstatic' atri="shoot" add_sub=0  player_id=data.pname.id%}">-</a>
+                        </td>
+                      </tr> 
+                    </tbody>
+                  </table>
+                  <!-- End Default Table Example -->
+                </div>
+              </div>
+{% endblock content %}

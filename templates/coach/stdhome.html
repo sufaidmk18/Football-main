@@ -22,10 +22,10 @@
         <h2>home</h2>
         
         <h3>manage your academy</h3>
-        <a href="{% url 'statistics' %}" >statistics</a>
+        <a href="{% url 'statistics' pid=i %}" >statistics</a>
         {% comment %} <a href="{% url 'viewperfo' %}" >performances</a>   {% endcomment %}
         <a href="{% url 'viewSdetails' id=i %}">details</a> 
-        <a href="viewperfo"  >performance</a>
+        {% comment %} <a href="{% url 'statistics' pid=i%}"  >performance</a> {% endcomment %}
         </body>
 </html>       
             
