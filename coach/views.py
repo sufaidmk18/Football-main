@@ -1,3 +1,4 @@
+from .models import team, team_type
 from datetime import date, timedelta
 from .models import statistics as model_statictics
 from datetime import datetime
@@ -251,3 +252,22 @@ def total_statictics(request):
     context = {"name": names, "bollcontrol": bollcontrol, "passaccuracy": passaccuracy,
                "stamina": stamina, "takles": takles, "shoot": shoot}
     return render(request, "coach/total_statictics.html", context)
+
+
+def team_view(request):
+    team_ob_tens = team.objects.all().filter(type_id=1)
+    team_ob_sevens = team.objects.all().filter(type_id=2)
+    team_ob_fives = team.objects.all().filter(type_id=3)
+    context = {"team_tens": team_ob_tens,
+               "team_fives": team_ob_fives, "team_sevens": team_ob_sevens}
+    return render(request, "coach/team.html", context)
+
+
+def addtoteam(request, player_id, team_id):
+    if team.objects.filter(pname_id=player_id).exists():
+        team_ob = team.objects.get(pname_id=player_id)
+        team_ob.type_id = team_id
+        team_ob.save()
+    else:
+        team.objects.create(pname_id=player_id, type_id=team_id)
+    return redirect("viewteams")

@@ -13,7 +13,7 @@
   <!-- Favicons -->
   <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
   <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
+  offset-5
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -269,6 +269,12 @@
         <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="{% url 'total_statictics' %}">
           <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
           <span>statictics</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="{% url 'viewteams' %}">
+          <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
+          <span>Team</span>
         </a>
       </li>
 

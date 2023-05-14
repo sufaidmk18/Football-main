@@ -1,0 +1,92 @@
+{% extends 'original/coach/main.html' %}
+{% block content %}
+
+
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Team Tens</h5>
+            
+                  <!-- Default Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">player</th>
+                        <th scope="col">details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in team_tens %}
+                      <tr>
+                       
+                        <td>{{i.pname}}</td>
+                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        
+                      </tr>
+                      {% endfor %}
+                     
+                      
+                    </tbody>
+                  </table>
+                  <!-- End Default Table Example -->
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Team Sevens</h5>
+            
+                  <!-- Default Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">player</th>
+                        <th scope="col">details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in team_sevens %}
+                      <tr>
+                       
+                        <td>{{i.pname}}</td>
+                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        
+                      </tr>
+                      {% endfor %}
+                     
+                      
+                    </tbody>
+                  </table>
+                  <!-- End Default Table Example -->
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Team Fives</h5>
+            
+                  <!-- Default Table -->
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">player</th>
+                        <th scope="col">details</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for i in team_fives %}
+                      <tr>
+                       
+                        <td>{{i.pname}}</td>
+                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        
+                      </tr>
+                      {% endfor %}
+                     
+                      
+                    </tbody>
+                  </table>
+                  <!-- End Default Table Example -->
+                </div>
+              </div>
+{% endblock content %}

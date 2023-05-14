@@ -24,5 +24,8 @@ urlpatterns = [
     path('match/', views.match, name="match"),
     path('comingm/', views.comingm, name="comingm"),
     path('static/', views.total_statictics, name="total_statictics"),
+    path("team/", views.team_view, name="viewteams"),
+    path("team/add/<int:player_id>/<int:team_id>",
+         views.addtoteam, name="addtoteam")
 
 ]

@@ -23,9 +23,15 @@ class Coach(models.Model):
     state = models.CharField(max_length=50, null=True)
 
 
+class team_type(models.Model):
+    type = models.CharField(max_length=50)
+
+
 class team(models.Model):
     pname = models.ForeignKey(player, on_delete=models.CASCADE)
     # match=models.ForeignKey(Match, on_delete=models.CASCADE)
+    type = models.ForeignKey(
+        team_type, default=1, on_delete=models.CASCADE)
 
 
 class statistics(models.Model):

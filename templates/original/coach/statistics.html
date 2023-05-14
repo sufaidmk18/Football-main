@@ -96,5 +96,24 @@
                   <!-- End Default Table Example -->
                 </div>
               </div>
-              <buttton class="btn btn-success offset-5">Add to team</button>
+              {% comment %} <buttton class="btn btn-success offset-5">Add to team</button> {% endcomment %}
+                <button type="button" class="btn btn-primary offset-5" data-bs-toggle="modal" data-bs-target="#verticalycentered">
+                  Add to Team
+                </button>
+                <div class="modal fade" id="verticalycentered" tabindex="-1">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Add to team</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      
+                      <div class="modal-footer">
+                        <a type="button" class="btn btn-primary" href="{% url 'addtoteam' player_id=data.pname.id team_id=1%}">Add to tens</a>
+                        <a type="button" class="btn btn-primary" href="{% url 'addtoteam' player_id=data.pname.id team_id=2%}">Add to Sevens</a>
+                        <a type="button" class="btn btn-primary" href="{% url 'addtoteam' player_id=data.pname.id team_id=3%}">Add to Fives</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 {% endblock content %}
