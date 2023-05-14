@@ -12,7 +12,8 @@
                       <tr>
                         
                         <th scope="col">player</th>
-                        <th scope="col">details</th>
+                        <th scope="col">actions</th>
+
                       </tr>
                     </thead>
                     <tbody>
@@ -20,7 +21,9 @@
                       <tr>
                        
                         <td>{{i.pname}}</td>
-                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        <td><a href="/coach/stdhome/{{i.pname.id}}"> details</a>
+                        <br><a href="{% url 'removefromteam' player_id=i.pname.id%}">remove</a>
+                        </td>
                         
                       </tr>
                       {% endfor %}
@@ -41,7 +44,7 @@
                       <tr>
                         
                         <th scope="col">player</th>
-                        <th scope="col">details</th>
+                        <th scope="col">action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -49,7 +52,8 @@
                       <tr>
                        
                         <td>{{i.pname}}</td>
-                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        <td><a href="/coach/stdhome/{{i.id}}"> details</a>
+                        <br><a href="{% url 'removefromteam' player_id=i.pname.id%}">remove</a></td>
                         
                       </tr>
                       {% endfor %}
@@ -78,7 +82,8 @@
                       <tr>
                        
                         <td>{{i.pname}}</td>
-                        <td><a href="/coach/stdhome/{{i.id}}"> details</a></td>
+                        <td><a href="/coach/stdhome/{{i.pname.id}}"> details</a>
+                        <br><a href="{% url 'removefromteam' player_id=i.pname.id%}">remove</a></td>
                         
                       </tr>
                       {% endfor %}

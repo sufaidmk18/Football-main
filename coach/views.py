@@ -271,3 +271,8 @@ def addtoteam(request, player_id, team_id):
     else:
         team.objects.create(pname_id=player_id, type_id=team_id)
     return redirect("viewteams")
+
+
+def removefromteam(request, player_id):
+    team.objects.get(pname_id=player_id).delete()
+    return redirect("viewteams")

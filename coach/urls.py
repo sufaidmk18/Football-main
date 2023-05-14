@@ -26,6 +26,8 @@ urlpatterns = [
     path('static/', views.total_statictics, name="total_statictics"),
     path("team/", views.team_view, name="viewteams"),
     path("team/add/<int:player_id>/<int:team_id>",
-         views.addtoteam, name="addtoteam")
+         views.addtoteam, name="addtoteam"),
+    path("team/remove/<int:player_id>/",
+         views.removefromteam, name="removefromteam")
 
 ]
