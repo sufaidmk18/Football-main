@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'original/staff/main.html' %}
+{% block content %}
+
     
-        <style>
+        {% comment %} <style>
         a:link, a:visited {
           background-color: #f44336;
           color: white;
@@ -15,18 +15,17 @@
         a:hover, a:active {
           background-color: red;
         }
-        </style>
-</head>
-        <body>
+        </style> {% endcomment %}
+
         
         <h2>home</h2>
         
         <h3>manage your academy</h3>
-        <a href="{% url 'stfcoaches' %}" >coaches</a>
-        <a href="{% url 'viewstf' id=id %}">details</a> 
-        <a href="{% url 'stfplayer' %}" >players</a>
-        <a href="{% url 'stfmatches' %}" >matches</a>  
-        <a href="{% url 'stfteam' %}">team</a> 
-        </body>
-</html>       
+        <a href="{% url 'stfcoaches' %}" class="btn btn-primary" >coaches</a>
+        <a href="{% url 'viewstf' id=id %}" class="btn btn-primary">details</a> 
+        <a href="{% url 'stfplayer' %}" class="btn btn-primary">players</a>
+        <a href="{% url 'stfmatches' %}" class="btn btn-primary">matches</a>  
+        <a href="{% url 'stfteam' %}" class="btn btn-primary">team</a> 
+        {% endblock content %}
+     
             
