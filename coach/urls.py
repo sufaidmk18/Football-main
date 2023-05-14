@@ -23,5 +23,6 @@ urlpatterns = [
 
     path('match/', views.match, name="match"),
     path('comingm/', views.comingm, name="comingm"),
+    path('static/', views.total_statictics, name="total_statictics"),
 
 ]

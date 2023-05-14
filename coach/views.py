@@ -1,3 +1,4 @@
+from datetime import date, timedelta
 from .models import statistics as model_statictics
 from datetime import datetime
 from django.shortcuts import render
@@ -48,10 +49,11 @@ def playerlist(request):
     context = {'playerr': playerr}
     return render(request, 'original/coach/player.html', context)
 
-from datetime import date, timedelta
+
 def comingm(request):
-    a={"data":Match.objects.all().filter(date__gte=date.today()).order_by('date')}
-    return render(request,'coach/comingm.html',a)
+    a = {"data": Match.objects.all().filter(
+        date__gte=date.today()).order_by('date')}
+    return render(request, 'coach/comingm.html', a)
 
 
 def addplayer(request):
@@ -197,7 +199,10 @@ def stdhome(request, id):
 
 def viewSdetails(request, id):
     p = player.objects.get(id=id)
-    context = {"p": p}
+    sta = model_statictics.objects.get(pname=p)
+    data = [sta.bollcontronl, sta.passaccuracy,
+            sta.stamina, sta.speed, sta.takles, sta.shoot]
+    context = {"p": p, "data": data}
     return render(request, 'coach/viewSdetails.html', context)
 
 
@@ -226,3 +231,23 @@ def editcoach(request, id):
 
 def match(request):
     return render(request, 'coach/match.html')
+
+
+def total_statictics(request):
+    bollcontrol_database = model_statictics.objects.all()
+    names = []
+    bollcontrol = []
+    passaccuracy = []
+    stamina = []
+    takles = []
+    shoot = []
+    for i in bollcontrol_database:
+        names.append(i.pname.pname)
+        bollcontrol.append(i.bollcontronl)
+        passaccuracy.append(i.passaccuracy)
+        stamina.append(i.stamina)
+        takles.append(i.takles)
+        shoot.append(i.shoot)
+    context = {"name": names, "bollcontrol": bollcontrol, "passaccuracy": passaccuracy,
+               "stamina": stamina, "takles": takles, "shoot": shoot}
+    return render(request, "coach/total_statictics.html", context)

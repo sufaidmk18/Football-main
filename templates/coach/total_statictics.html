@@ -1,0 +1,196 @@
+{% extends 'original/coach/main.html' %}
+{% block content %}
+<div class="row">
+<div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Boll control</h5>
+
+        <!-- Bar Chart -->
+        <div id="barChart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#barChart"), {
+              series: [{
+                data: [{% for i in bollcontrol %}{{i}},{% endfor %}]
+              }],
+              chart: {
+                type: 'bar',
+                height: 350
+              },
+              plotOptions: {
+                bar: {
+                  borderRadius: 4,
+                  horizontal: false,
+                }
+              },
+              dataLabels: {
+                enabled: true
+              },
+              xaxis: {
+                categories:[{% for i in name %}'{{i}}',{% endfor %}],
+              }
+            }).render();
+          });
+        </script>
+        <!-- End Bar Chart -->
+
+      </div>
+    </div>
+</div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Pass Accuracy</h5>
+
+        <!-- Bar Chart -->
+        <div id="passaccuracy"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#passaccuracy"), {
+              series: [{
+                data: [{% for i in passaccuracy %}{{i}},{% endfor %}]
+              }],
+              chart: {
+                type: 'bar',
+                height: 350
+              },
+              plotOptions: {
+                bar: {
+                  borderRadius: 4,
+                  horizontal: false,
+                }
+              },
+              dataLabels: {
+                enabled: true
+              },
+              xaxis: {
+                categories:[{% for i in name %}'{{i}}',{% endfor %}],
+              }
+            }).render();
+          });
+        </script>
+        <!-- End Bar Chart -->
+
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Stamina</h5>
+
+        <!-- Bar Chart -->
+        <div id="stamina"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#stamina"), {
+              series: [{
+                data: [{% for i in stamina %}{{i}},{% endfor %}]
+              }],
+              chart: {
+                type: 'bar',
+                height: 350
+              },
+              plotOptions: {
+                bar: {
+                  borderRadius: 4,
+                  horizontal: false,
+                }
+              },
+              dataLabels: {
+                enabled: true
+              },
+              xaxis: {
+                categories:[{% for i in name %}'{{i}}',{% endfor %}],
+              }
+            }).render();
+          });
+        </script>
+        <!-- End Bar Chart -->
+
+      </div>
+    </div>
+</div>
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">takles</h5>
+  
+          <!-- Bar Chart -->
+          <div id="takles"></div>
+  
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new ApexCharts(document.querySelector("#takles"), {
+                series: [{
+                  data: [{% for i in takles %}{{i}},{% endfor %}]
+                }],
+                chart: {
+                  type: 'bar',
+                  height: 350
+                },
+                plotOptions: {
+                  bar: {
+                    borderRadius: 4,
+                    horizontal: false,
+                  }
+                },
+                dataLabels: {
+                  enabled: true
+                },
+                xaxis: {
+                  categories:[{% for i in name %}'{{i}}',{% endfor %}],
+                }
+              }).render();
+            });
+          </script>
+          <!-- End Bar Chart -->
+  
+        </div>
+    </div>
+</div>
+<div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">shoot</h5>
+  
+          <!-- Bar Chart -->
+          <div id="shoot"></div>
+  
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              new ApexCharts(document.querySelector("#shoot"), {
+                series: [{
+                  data: [{% for i in shoot %}{{i}},{% endfor %}]
+                }],
+                chart: {
+                  type: 'bar',
+                  height: 350
+                },
+                plotOptions: {
+                  bar: {
+                    borderRadius: 4,
+                    horizontal: false,
+                  }
+                },
+                dataLabels: {
+                  enabled: true
+                },
+                xaxis: {
+                  categories:[{% for i in name %}'{{i}}',{% endfor %}],
+                }
+              }).render();
+            });
+          </script>
+          <!-- End Bar Chart -->
+  
+        </div>
+    </div>
+</div>
+</div>
+  
+{% endblock content %}

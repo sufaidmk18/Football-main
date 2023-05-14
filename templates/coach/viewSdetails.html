@@ -13,6 +13,75 @@
         <li class="list-group-item">contact:{{p.contact}}</li>
 
     </ul>
+    <br>
+<h2>statictics</h2>
+<div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Player Performance</h5>
 
+        <!-- Radar Chart -->
+        <div id="radarChart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#radarChart"), {
+              series: [{
+                name: 'Series 1',
+                data: [{% for i in data %}{{i}},{% endfor %} ],
+              }],
+              chart: {
+                height: 500,
+                type: 'radar',
+              },
+              xaxis: {
+                categories: ['Ball Control', 'Pass Accuracy', 'Stamina', 'Speed', 'Takles', 'Shoot']
+              }
+            }).render();
+          });
+        </script>
+        <!-- End Radar Chart -->
+        
+    </div>
+</div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Bar Chart</h5>
+
+        <!-- Bar Chart -->
+        <div id="barChart"></div>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            new ApexCharts(document.querySelector("#barChart"), {
+              series: [{
+                data: [{% for i in data %}{{i}},{% endfor %} ],
+              }],
+              chart: {
+                type: 'bar',
+                height: 350
+              },
+              plotOptions: {
+                bar: {
+                  borderRadius: 4,
+                  horizontal: true,
+                }
+              },
+              dataLabels: {
+                enabled: false
+              },
+              xaxis: {
+                categories: ['Ball Control', 'Pass Accuracy', 'Stamina', 'Speed', 'Takles', 'Shoot'],
+              }
+            }).render();
+          });
+        </script>
+        <!-- End Bar Chart -->
+
+      </div>
+    </div>
+  </div>
+</div>
     {% endblock content %}
 

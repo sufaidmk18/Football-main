@@ -265,6 +265,12 @@
           <span>add new player</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="{% url 'total_statictics' %}">
+          <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
+          <span>statictics</span>
+        </a>
+      </li>
 
       
 
