@@ -1,0 +1,11 @@
+{% extends 'original/coach/main.html' %}
+
+{% block content %}
+    {% for i in data %}
+    {{i.opposite_team}}<br>
+    {{i.date}}<br>
+    {{i.time}}<br>
+    
+    
+    {% endfor %}
+{% endblock content %}  

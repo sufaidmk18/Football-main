@@ -22,5 +22,6 @@ urlpatterns = [
     path('viewSdetails/<int:id>', views.viewSdetails, name="viewSdetails"),
 
     path('match/', views.match, name="match"),
+    path('comingm/', views.comingm, name="comingm"),
 
 ]

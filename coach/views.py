@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from .models import *
 from manager.models import login
 from player.models import player
+from staff.models import Match
 from .form import Coachform
 from .models import player, attendance
 from django.shortcuts import redirect
@@ -47,6 +48,11 @@ def playerlist(request):
     context = {'playerr': playerr}
     return render(request, 'original/coach/player.html', context)
 
+from datetime import date, timedelta
+def comingm(request):
+    a={"data":Match.objects.all().filter(date__gte=date.today()).order_by('date')}
+    return render(request,'coach/comingm.html',a)
+
 
 def addplayer(request):
     if request.method == "POST":
@@ -74,35 +80,35 @@ def Statistics(request, pid):
 def editstatic(request, atri, add_sub, player_id):
     statistics_object = model_statictics.objects.get(pname_id=player_id)
     if atri == "bollcontronl":
-        if add_sub == 0 and statistics_object.bollcontronl-10 >= 0:
-            statistics_object.bollcontronl = statistics_object.bollcontronl - 10
-        elif add_sub == 1 and statistics_object.bollcontronl+10 <= 100:
-            statistics_object.bollcontronl = statistics_object.bollcontronl + 10
+        if add_sub == 0 and statistics_object.bollcontronl-1 >= 0:
+            statistics_object.bollcontronl = statistics_object.bollcontronl - 1
+        elif add_sub == 1 and statistics_object.bollcontronl+1 <= 100:
+            statistics_object.bollcontronl = statistics_object.bollcontronl + 1
     elif atri == "passaccuracy":
-        if add_sub == 0 and statistics_object.passaccuracy-10 >= 0:
-            statistics_object.passaccuracy = statistics_object.passaccuracy - 10
-        elif add_sub == 1 and statistics_object.passaccuracy+10 <= 100:
-            statistics_object.passaccuracy = statistics_object.passaccuracy + 10
+        if add_sub == 0 and statistics_object.passaccuracy-1 >= 0:
+            statistics_object.passaccuracy = statistics_object.passaccuracy - 1
+        elif add_sub == 1 and statistics_object.passaccuracy+1 <= 100:
+            statistics_object.passaccuracy = statistics_object.passaccuracy + 1
     elif atri == "stamina":
-        if add_sub == 0 and statistics_object.stamina-10 >= 0:
-            statistics_object.stamina = statistics_object.stamina - 10
-        elif add_sub == 1 and statistics_object.stamina+10 <= 100:
-            statistics_object.stamina = statistics_object.stamina + 10
+        if add_sub == 0 and statistics_object.stamina-1 >= 0:
+            statistics_object.stamina = statistics_object.stamina - 1
+        elif add_sub == 1 and statistics_object.stamina+1 <= 100:
+            statistics_object.stamina = statistics_object.stamina + 1
     elif atri == "speed":
-        if add_sub == 0 and statistics_object.speed-10 >= 0:
-            statistics_object.speed = statistics_object.speed - 10
-        elif add_sub == 1 and statistics_object.speed+10 <= 100:
-            statistics_object.speed = statistics_object.speed + 10
+        if add_sub == 0 and statistics_object.speed-1 >= 0:
+            statistics_object.speed = statistics_object.speed - 1
+        elif add_sub == 1 and statistics_object.speed+1 <= 100:
+            statistics_object.speed = statistics_object.speed + 1
     elif atri == "takles":
-        if add_sub == 0 and statistics_object.takles-10 >= 0:
-            statistics_object.takles = statistics_object.takles - 10
-        elif add_sub == 1 and statistics_object.takles+10 <= 100:
-            statistics_object.takles = statistics_object.takles + 10
+        if add_sub == 0 and statistics_object.takles-1 >= 0:
+            statistics_object.takles = statistics_object.takles - 1
+        elif add_sub == 1 and statistics_object.takles+1 <= 100:
+            statistics_object.takles = statistics_object.takles + 1
     elif atri == "shoot":
-        if add_sub == 0 and statistics_object.shoot-10 >= 0:
-            statistics_object.shoot = statistics_object.shoot - 10
-        elif add_sub == 1 and statistics_object.shoot+10 <= 100:
-            statistics_object.shoot = statistics_object.shoot + 10
+        if add_sub == 0 and statistics_object.shoot-1 >= 0:
+            statistics_object.shoot = statistics_object.shoot - 1
+        elif add_sub == 1 and statistics_object.shoot+1 <= 100:
+            statistics_object.shoot = statistics_object.shoot + 1
 
     statistics_object.save()
     return redirect("statistics", pid=player_id)

@@ -10,8 +10,8 @@
     {% for i in data %}
     {{i.opposite_team}}<br>
     {{i.date}}<br>
-    <a href="{% url 'addmatchdetails' id=i.id %}">details</a>
-    <a href="#">view</a>
+    {{i.time}}<br>
+    
     <hr>
     {% endfor %}
 </body>

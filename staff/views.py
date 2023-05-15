@@ -142,6 +142,8 @@ def upcoming(request):
     a={"data":Match.objects.all().filter(date__gte=date.today()).order_by('date')}
     return render(request,'staff/upcoming.html',a)
 
+
+
 def played(request):
     context={"data":match_details.objects.all()}
     return render(request,'staff/played.html',context)

@@ -10,7 +10,7 @@
     {% for i in data %}
     {{i.Match.opposite_team}}<br>
     {{i.Match.date}}<br>
-    <a href="{% url 'addmatchdetails' id=i.id %}">details</a>
+    <a href="{% url 'addmatchdetails' id=i.id %}">result</a>
     <hr>
     {% endfor %}
 </body>
