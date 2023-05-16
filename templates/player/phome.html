@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-        <style>
-        a:link, a:visited {
-          background-color: #f44336;
-          color: white;
-          padding: 14px 25px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-        }
-        
-        a:hover, a:active {
-          background-color: red;
-        }
-        </style>
-</head>
-        <body>
-        
-        <h2>hai</h2>
-        
-        <a href='#' >statistics</a>
-        <a href='#'>team</a> 
-        <a href='#'>match</a>
-        <a href='#'>messages</a>  
-        <a href="{% url 'viewp' id=id %}">details</a>
-        <a href='#'>performance</a> 
-        </body>
-</html>       
+{% extends 'original/player/main.html' %}
+      {% block content %}
+        <a href='#' class="btn btn-primary">statistics</a>
+        <a href='#' class="btn btn-primary">team</a> 
+        <a href='#' class="btn btn-primary">match</a>
+        <a href='#' class="btn btn-primary">messages</a>  
+        <a href="{% url 'viewp' id=id %}" class="btn btn-primary">details</a>
+        <a href='#' class="btn btn-primary">performance</a> 
+        {% endblock content %}  
+      
             

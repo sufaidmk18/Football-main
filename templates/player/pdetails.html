@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>add your details</h1>
-
+{% extends 'original/player/main.html' %}
+{% block content %}
 <form method="POST">
 
   {%csrf_token%}
-
-  <label for="fname"> name:</label>
-  <input type="text" id="fname" name="fname"><br><br>
-  <label for="dob">dob</label>
-  <input type="date" id="dob" name="dob">
-  <br><br>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">name</label>
+    <input type="text" id="fname" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">dob</label>
+    <input type="date" id="dob" class="form-control" />
+  </div>
   
-    <label for="position">Choose a position:</label>
-    <select name="position" id="position">
+  <div class="form-outline mb-4">
+    
+    <label for="position" class="form-label">Choose a position:</label>
+    <select name="position" id="position" class="form-control">
       <option value="Goalkeeper">Goalkeeper</option>
       <option value="Centre-back">Centre-back</option>
       <option value="Full-back">Full-back</option>
@@ -29,25 +29,37 @@
       <option value="right forward">right forward</option>
       
     </select>
-    <br><br>
-  <label for="post"> post</label>
-  <input type="text" id="post" name="post"><br><br>
-  <label for="contact"> contact</label>
-  <input type="text" id="contact" name="contact"><br><br>
-  <label for="hname"> housename</label>
-  <input type="text" id="hname" name="hname"><br><br>
-  <label for="place">place</label>
-  <input type="text" id="place" name="place"><br><br>
-  <label for="village"> village:</label>
-  <input type="text" id="village" name="village"><br><br>
-  <label for="district"> district:</label>
-  <input type="text" id="district" name="district"><br><br>
-  <label for="state">state</label>
-  <input type="text" id="state" name="state"><br><br>
+    
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">post</label>
+    <input type="text" id="post" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">contact</label>
+    <input type="text" id="contact" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">house name</label>
+    <input type="text" id="hname" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">place</label>
+    <input type="text" id="place" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">village</label>
+    <input type="text" id="village" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">district</label>
+    <input type="text" id="district" class="form-control" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" name="uname" for="form2Example1">state</label>
+    <input type="text" id="state" class="form-control" />
+  </div>
   <input type="submit" value="Submit">
 </form>
 {{message}}
-
-
-</body>
-</html>
+{% endblock content %}
