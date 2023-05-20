@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <body>
+{% extends 'original/coach/main.html' %}
+{% block content %}
     <ul class="list-group">
         <li class="list-group-item active" aria-current="true">name:{{p.pname}}</li>
         <li class="list-group-item"> DOB :{{p.dob}} </li>
@@ -14,6 +13,4 @@
         <li class="list-group-item">contact:{{p.contact}}</li>
 
     </ul>
-
-</body>
-</html>
+{% endblock content%}    

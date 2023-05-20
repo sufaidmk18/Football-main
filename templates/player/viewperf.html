@@ -1,0 +1,17 @@
+{% extends 'player/phome.html' %}
+{% block content %}
+    <ul class="list-group">
+        <li class="list-group-item" aria-current="true">name:{{p.pname}}</li>
+        <li class="list-group-item"> DOB :{{p.dob}} </li>
+        <li class="list-group-item">housename:{{p.housename}}</li>
+        <li class="list-group-item">position:{{p.position}}</li>
+        <li class="list-group-item"> post:{{p.post}}</li>
+        <li class="list-group-item">place:{{p.place}}</li>
+        <li class="list-group-item">village:{{p.village}}</li>
+        <li class="list-group-item">district:{{p.district}}</li>
+        <li class="list-group-item">state:{{p.state}}</li>
+        <li class="list-group-item">contact:{{p.contact}}</li>
+
+    </ul>
+
+{% endblock %}

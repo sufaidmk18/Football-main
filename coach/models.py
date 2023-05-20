@@ -26,9 +26,6 @@ class Coach(models.Model):
 class team_type(models.Model):
     type = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.type
-
 
 class team(models.Model):
     pname = models.ForeignKey(player, on_delete=models.CASCADE)

@@ -217,7 +217,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" >
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'auth_logout' %}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -237,7 +237,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="{% url 'auth_home' %}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -251,16 +251,32 @@
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-folder{% if case or addcase or case_category or judgement_case or closed_case%}-fill{% endif %}"></i><span>Performance</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-       
+        {% comment %} <ul id="tables-nav" class="nav-content collapse {% if case or addcase or case_category or judgement_case or closed_case%}show{% endif %}" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'viewnews' %}" {% if case %}class="active"{% endif %}>
+              <i class="bi bi-circle"></i><span>News</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'addnews' %}" {% if judgement_case %}class="active"{% endif %}>
+              <i class="bi bi-circle"></i><span>Add news</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'viewcategory' %}" {% if judgement_case %}class="active"{% endif %}>
+              <i class="bi bi-circle"></i><span>Category</span>
+            </a>
+          </li>
+        </ul> {% endcomment %}
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
+        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="{% url 'post' %}">
           <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
           <span>Staticitcs</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
+        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="{% url 'advertiser' %}">
           <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
           <span>Team</span>
         </a>
@@ -269,24 +285,6 @@
         <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
           <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
           <span>Match</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
-          <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
-          <span>Messages</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
-          <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
-          <span>details</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {% if not todo_list %}collapsed{% endif %}" href="">
-          <i class="bi bi-stickies{% if todo_list %}-fill{% endif %}"></i>
-          <span>Performance</span>
         </a>
       </li>
     </ul>

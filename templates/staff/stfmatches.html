@@ -1,11 +1,9 @@
+{% extends 'original/coach/main.html' %}
 
-{% extends 'original/staff/main.html' %}
 {% block content %}
-        <h3>manage your academy</h3>
-        <a href="{% url 'newmatch' %}" class="btn btn-primary">newmatch</a>
-        <a href="{% url 'upcoming' %}" class="btn btn-primary">upcoming</a> 
-        <a href="{% url 'played' %}"  class="btn btn-primary">played</a>
+        {% comment %} <a href="{% url 'newmatch' %}" class="btn btn-success">newmatch</a> {% endcomment %}
+        <a href="{% url 'upcoming' %}"class="btn btn-warning">upcoming</a> 
+        <a href="{% url 'played' %}" class="btn btn-primary">played</a>
         {% comment %} <a href="{% url 'stfteam' %}">team</a>  {% endcomment %}
-        {% endblock content %}
-      
-            
+           
+{% endblock content%}            

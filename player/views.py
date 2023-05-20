@@ -4,6 +4,7 @@ from .models import *
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect
 from .form import playerform
+from staff.models import *
 
 # Create your views here.
 def phome(request):
@@ -64,8 +65,10 @@ def pmessages(request):
 def viewmatch(request):
     return render(request,'player/viewmatch.html')
 
-def viewperf(request):
-    return render(request,'player/viewperf.html')
+def viewperf(request,id):
+    p = player.objects.get(id=id)
+    context = {"p": p}
+    return render(request,'player/viewperf.html',context)
 
 def viewstat(request):
     return render(request,'player/viewstat.html')

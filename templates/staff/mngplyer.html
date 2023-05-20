@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-        <style>
-        a:link, a:visited {
-          background-color: #f44336;
-          color: white;
-          padding: 14px 25px;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-        }
-        
-        a:hover, a:active {
-          background-color: red;
-        }
-        </style>
-</head>
-        <body>
-        
-        <h2>home</h2>
-        
-        <h3>manage your player</h3>
-        <a href="{% url 'addperfo' id=i %}">performance</a>
+{% extends 'original/coach/main.html' %}
+
+{% block content %}
+        <a href="{% url 'addperfo' id=i %}" class="btn btn-success">performance</a>
         {% comment %} <a href="{% url 'viewstatistics' %}">statistics</a> {% endcomment %}
-        <a href="{% url 'viewpdetails' id=i %}">details</a>
+        <a href="{% url 'viewpdetails' id=i %}" class="btn btn-primary">details</a>
         </body>
-</html>       
+{% endblock content%}    
             

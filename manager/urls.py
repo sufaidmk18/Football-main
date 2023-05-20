@@ -20,5 +20,9 @@ urlpatterns = [
     path('viewcoach/<int:id>', views.viewcoach, name="viewcoach"),
     path("edit/", views.editmanager, name="editmanager"),
     path('matches/', views.match, name="matches"),
+    path('viewmresult/', views.viewmresult, name="viewmresult"),
+    path('playedmatches/', views.playedmatches, name="playedmatches"),
 
+     
+     
 ]

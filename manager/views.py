@@ -8,6 +8,7 @@ from staff.models import Staff
 from .form import Managerform
 from player.models import player
 from staff.models import Match
+from staff.models import match_details
 
 # Create your views here.
 
@@ -42,6 +43,13 @@ def loginn(request):
 def samplelogin(request):
     return render(request, "original/index.html")
 
+def playedmatches(request):
+    context={"data":match_details.objects.all()}
+    return render(request, "manager/playedmatches.html",context)
+
+def viewmresult(request):
+
+    return render(request, "manager/viewmresult.html")
 
 def coach(request):
     if request.method == 'POST':

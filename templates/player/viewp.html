@@ -1,7 +1,26 @@
-{% extends 'original/player/main.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <style>
+        a:link, a:visited {
+          background-color: #f44336;
+          color: white;
+          padding: 14px 25px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+        }
+              
+        a:hover, a:active {
+          background-color: red;
+        }
+        </style>
+        
+</head>
+        <body>
           <ul class="list-group">
-            <li class="list-group-item active" aria-current="true">name:{{p.pname}}</li>
+            <li class="list-group-item active" aria-current="true">name:{{p.name}}</li>
             <li class="list-group-item"> DOB :{{p.dob}} </li>
             <li class="list-group-item"> position:{{p.position}}</li>
             <li class="list-group-item">housename:{{p.housename}}</li>
@@ -13,4 +32,6 @@
             <li class="list-group-item">contact:{{p.contact}}</li>
 
         </ul>
-        {% endblock content %}
+        <a href="{% url 'editplayer' id=p.id %}" >edit</a>
+        </body>
+</html>
