@@ -44,6 +44,17 @@ class statistics(models.Model):
     shoot = models.IntegerField(default=50)
 
 
+class track_statistics(models.Model):
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    player = models.ForeignKey(player, on_delete=models.CASCADE)
+    bollcontronl = models.IntegerField(default=50)
+    passaccuracy = models.IntegerField(default=50)
+    stamina = models.IntegerField(default=50)
+    speed = models.IntegerField(default=50)
+    takles = models.IntegerField(default=50)
+    shoot = models.IntegerField(default=50)
+
+
 class attendance(models.Model):
     pname = models.ForeignKey(player, on_delete=models.CASCADE)
     status = models.BooleanField()

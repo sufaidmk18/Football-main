@@ -1,3 +1,4 @@
+from .models import track_statistics
 from .models import team, team_type
 from datetime import date, timedelta
 from .models import statistics as model_statictics
@@ -76,43 +77,66 @@ def Statistics(request, pid):
     if model_statictics.objects.filter(pname_id=pid).exists():
         return render(request, "original/coach/statistics.html", {"data": model_statictics.objects.get(pname_id=pid)})
     else:
+        date_ob = f"{datetime.today().year}-{datetime.today().month}-{datetime.today().day}"
         model_statictics.objects.create(pname_id=pid)
+        track_statistics.objects.create(player_id=pid, date=date_ob)
         return render(request, "original/coach/statistics.html", {"data": model_statictics.objects.get(pname_id=pid)})
 
 
 def editstatic(request, atri, add_sub, player_id):
+    date_ob = f"{datetime.today().year}-{datetime.today().month}-{datetime.today().day}"
+    if track_statistics.objects.filter(player_id=player_id, date=date_ob).exists():
+        track_statistics_ob = track_statistics.objects.get(
+            date=date_ob, player_id=player_id)
+    else:
+        track_statistics_ob = track_statistics.objects.create(
+            player_id=player_id, date=date_ob)
+        print(False)
+    print(date_ob)
     statistics_object = model_statictics.objects.get(pname_id=player_id)
     if atri == "bollcontronl":
         if add_sub == 0 and statistics_object.bollcontronl-1 >= 0:
             statistics_object.bollcontronl = statistics_object.bollcontronl - 1
+            track_statistics_ob.bollcontronl = statistics_object.bollcontronl
         elif add_sub == 1 and statistics_object.bollcontronl+1 <= 100:
             statistics_object.bollcontronl = statistics_object.bollcontronl + 1
+            track_statistics_ob.bollcontronl = statistics_object.bollcontronl
     elif atri == "passaccuracy":
         if add_sub == 0 and statistics_object.passaccuracy-1 >= 0:
             statistics_object.passaccuracy = statistics_object.passaccuracy - 1
+            track_statistics_ob.passaccuracy = statistics_object.passaccuracy
         elif add_sub == 1 and statistics_object.passaccuracy+1 <= 100:
             statistics_object.passaccuracy = statistics_object.passaccuracy + 1
+            track_statistics_ob.passaccuracy = statistics_object.passaccuracy
     elif atri == "stamina":
         if add_sub == 0 and statistics_object.stamina-1 >= 0:
             statistics_object.stamina = statistics_object.stamina - 1
         elif add_sub == 1 and statistics_object.stamina+1 <= 100:
             statistics_object.stamina = statistics_object.stamina + 1
+        track_statistics_ob.stamina = statistics_object.stamina
     elif atri == "speed":
         if add_sub == 0 and statistics_object.speed-1 >= 0:
             statistics_object.speed = statistics_object.speed - 1
+            track_statistics_ob.speed = statistics_object.speed
         elif add_sub == 1 and statistics_object.speed+1 <= 100:
             statistics_object.speed = statistics_object.speed + 1
+            track_statistics_ob.speed = statistics_object.speed
     elif atri == "takles":
         if add_sub == 0 and statistics_object.takles-1 >= 0:
             statistics_object.takles = statistics_object.takles - 1
+            track_statistics_ob.takles = track_statistics_ob.takles
         elif add_sub == 1 and statistics_object.takles+1 <= 100:
             statistics_object.takles = statistics_object.takles + 1
+            track_statistics_ob.takles = track_statistics_ob.takles
     elif atri == "shoot":
         if add_sub == 0 and statistics_object.shoot-1 >= 0:
             statistics_object.shoot = statistics_object.shoot - 1
+            track_statistics_ob.shoot = statistics_object.shoot
         elif add_sub == 1 and statistics_object.shoot+1 <= 100:
             statistics_object.shoot = statistics_object.shoot + 1
+            track_statistics_ob.shoot = statistics_object.shoot
 
+    track_statistics_ob.save()
     statistics_object.save()
     return redirect("statistics", pid=player_id)
 
@@ -242,6 +266,7 @@ def total_statictics(request):
     stamina = []
     takles = []
     shoot = []
+
     for i in bollcontrol_database:
         names.append(i.pname.pname)
         bollcontrol.append(i.bollcontronl)
@@ -249,8 +274,33 @@ def total_statictics(request):
         stamina.append(i.stamina)
         takles.append(i.takles)
         shoot.append(i.shoot)
+
+        # daily  track database
+    daily_track_data = track_statistics.objects.all()
+    players_list = []
+    for i in daily_track_data:
+        if (i.player in players_list):
+            continue
+        else:
+            players_list.append(i.player)
+    daily_context_data = []
+
+    for i in players_list:
+        single_player_ob = track_statistics.objects.all().filter(player=i)
+        single_ob = {"id": i.id, "name": i.pname, "date": [], "bollcontronl": [], "passaccuracy": [
+        ], "stamina": [], "speed": [], "takles": [], "shoot": []}
+        for i in single_player_ob:
+            single_ob["date"].append(i.date)
+            single_ob["bollcontronl"].append(i.bollcontronl)
+            single_ob["passaccuracy"].append(i.passaccuracy)
+            single_ob["stamina"].append(i.stamina)
+            single_ob["speed"].append(i.speed)
+            single_ob["takles"].append(i.takles)
+            single_ob["shoot"].append(i.shoot)
+        daily_context_data.append(single_ob)
+    print(daily_context_data)
     context = {"name": names, "bollcontrol": bollcontrol, "passaccuracy": passaccuracy,
-               "stamina": stamina, "takles": takles, "shoot": shoot}
+               "stamina": stamina, "takles": takles, "shoot": shoot, "daily": daily_context_data}
     return render(request, "coach/total_statictics.html", context)
 
 
